@@ -6,7 +6,22 @@ public class App {
 
     public static double calculateWaterBill(double gallonsUsage) {
         // TODO: Implement method
-        return 0;
+        double minCharge = 18.84;
+        double limitMinCharge = 1496.00;
+        double CCF = 748.00;
+        double additionalCharge = 3.9;
+
+        if (gallonsUsage <= limitMinCharge)
+        {
+            return minCharge;
+        }
+        else {
+            double res = ((gallonsUsage-limitMinCharge)/CCF);
+            int numOfAdditionalCCF = (int)Math.ceil(res);
+            System.out.println("additional CCF = " + numOfAdditionalCCF);
+            return minCharge + (additionalCharge * numOfAdditionalCCF);
+        }
+
     }
 
     public static void main(String[] args) {
