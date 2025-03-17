@@ -13,7 +13,7 @@ public class Person {
   }
 
   public void introducePerson(){
-    System.out.println("Hi! I'm " + this.lastName + " " + this.firstName + " and I'm " + this.age + " years old. Nice to meet you!");
+    System.out.println("Hi! I'm " + this.getLastName() + " " + this.getFirstName() + " and I'm " + this.getAge() + " years old. Nice to meet you!");
   }
 
   public int getAge(){
@@ -21,7 +21,13 @@ public class Person {
   }
 
   public void setAge(int age){
-    this.age = age;
+    if (age < this.age){
+      System.out.println("you cannot make a person younger! Age " + age + " not set.");
+    }
+    else {
+      this.age = age;
+      System.out.println("New Age set to " + this.getAge());
+    }
   }
 
   public String getFirstName(){
