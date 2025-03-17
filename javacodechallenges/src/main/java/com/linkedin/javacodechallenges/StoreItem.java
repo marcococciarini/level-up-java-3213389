@@ -1,6 +1,7 @@
 package com.linkedin.javacodechallenges;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +18,9 @@ public class StoreItem {
 
   public static Optional<StoreItem> findLeastExpensive(Collection<StoreItem> items) {
     // TODO: Implement
-    return Optional.empty();
+    Optional<StoreItem> minItem = items.stream().min( (item1,item2) -> Double.compare(item1.retailPrice - (item1.retailPrice* item1.discount), 
+                                                        item2.retailPrice - (item2.retailPrice* item2.discount) ));
+    return minItem;
   }
 
   @Override
